@@ -1,3 +1,5 @@
-# Architecture Diagram
+# Architecture Diagram (Increment 3)
 
-[FileLineSource] ---> (Pipeline) ---> [ConsoleSink]
+[FileLineSource] ---> (ParserStage) ---> (PredicateFilterStage) ---> (ProjectionStage) ---> [FileSink / ConsoleSink]
+
+Composability achieved via PipelineBuilder and modular Stages.
