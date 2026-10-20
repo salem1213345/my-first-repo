@@ -1,5 +1,11 @@
-# Architecture Diagram (Increment 3)
+# Architecture Diagram (Increment 4)
 
+[Declarative Config File (JSON)] ---> [PipelineLoader]
+                                              |
+                                              v
+                                      [StageRegistry]
+                                              |
+                                              v
 [FileLineSource] ---> (ParserStage) ---> (PredicateFilterStage) ---> (ProjectionStage) ---> [FileSink / ConsoleSink]
 
-Composability achieved via PipelineBuilder and modular Stages.
+Extensibility through Data-driven Stage Registry and Dynamic Pipeline Loader with Fail-Fast Configuration Validation.

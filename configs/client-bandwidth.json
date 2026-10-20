@@ -1,0 +1,11 @@
+﻿{
+  "pipeline": {
+    "name": "client-bandwidth",
+    "source": { "type": "file", "params": { "path": "data/access-small.log" } },
+    "stages": [
+      { "type": "parse", "params": {} },
+      { "type": "project", "params": { "fields": ["clientip", "bytes"] } }
+    ],
+    "sink": { "type": "file", "params": { "path": "data/client-bandwidth.txt" } }
+  }
+}

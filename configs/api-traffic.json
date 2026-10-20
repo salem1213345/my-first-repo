@@ -1,0 +1,12 @@
+﻿{
+  "pipeline": {
+    "name": "api-traffic",
+    "source": { "type": "file", "params": { "path": "data/access-small.log" } },
+    "stages": [
+      { "type": "parse", "params": {} },
+      { "type": "filter", "params": { "field": "path", "op": "startswith", "value": "/api" } },
+      { "type": "project", "params": { "fields": ["timestamp", "path", "status"] } }
+    ],
+    "sink": { "type": "file", "params": { "path": "data/api-traffic.txt" } }
+  }
+}

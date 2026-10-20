@@ -1,0 +1,12 @@
+﻿{
+  "pipeline": {
+    "name": "error-report",
+    "source": { "type": "file", "params": { "path": "data/access-small.log" } },
+    "stages": [
+      { "type": "parse", "params": {} },
+      { "type": "filter", "params": { "field": "status", "op": ">=", "value": 400 } },
+      { "type": "project", "params": { "fields": ["timestamp", "clientip", "status", "path"] } }
+    ],
+    "sink": { "type": "file", "params": { "path": "data/errors.txt" } }
+  }
+}
